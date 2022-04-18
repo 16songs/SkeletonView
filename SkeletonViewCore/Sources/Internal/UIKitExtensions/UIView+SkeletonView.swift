@@ -27,7 +27,6 @@ extension UIView {
         }
         
         recursiveShowSkeleton(skeletonConfig: config, root: self)
-        updateSkeleton(skeletonConfig: config, notifyDelegate: notifyDelegate)
     }
 
     func updateSkeleton(
