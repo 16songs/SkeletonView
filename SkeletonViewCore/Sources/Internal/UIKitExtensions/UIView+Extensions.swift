@@ -143,6 +143,12 @@ extension UIView {
             // Workaround to fix the problem when inserting a sublayer and
             // the content offset is modified by the system.
             (self as? UITextView)?.setContentOffset(.zero, animated: false)
+
+            // Update the color after insertion
+            // Since the system needs to derive the color based on the view hierarchy
+            // otherwise, the color is compatible with system color scheme.
+            // see https://github.com/Juanpe/SkeletonView/issues/392
+            skeletonLayer.update(usingColors: config.colors)
             
             if config.animated {
                 self.startSkeletonAnimation(config.animation)
